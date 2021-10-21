@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "743282986850",
+    "firebase_url": "https://worktimetrackerdatabase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "worktimetrackerdatabase",
+    "storage_bucket": "worktimetrackerdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743282986850:android:3df15cf2f5a18b61d6a63b",
+        "android_client_info": {
+          "package_name": "com.asdf.sdf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCssHzh_GrJVmCUxu-0kDnL8fQ7A_npTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743282986850:android:d32db5d0aad17f34d6a63b",
+        "android_client_info": {
+          "package_name": "com.examble.goodstuff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCssHzh_GrJVmCUxu-0kDnL8fQ7A_npTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743282986850:android:377189ca9b12cd13d6a63b",
+        "android_client_info": {
+          "package_name": "com.example.goodstuff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCssHzh_GrJVmCUxu-0kDnL8fQ7A_npTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743282986850-ekfkukdtnnp2aqhrvbufaro5m5cj3u3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
