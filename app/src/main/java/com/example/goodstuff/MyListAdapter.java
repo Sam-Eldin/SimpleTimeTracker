@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
+public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
     public ArrayList<MyListData> listdata = new ArrayList<>();
 
     public MyListAdapter() {
@@ -26,13 +26,13 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
+        View listItem = layoutInflater.inflate(R.layout.list_item, parent, false);
         return new ViewHolder(listItem);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if(position > listdata.size() - 1)
+        if (position > listdata.size() - 1)
             return;
         final MyListData myListData = listdata.get(position);
         holder.Day.setText(myListData.getDay());
@@ -50,17 +50,13 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             builder.setPositiveButton("Set", (dialog, which) -> {
                 String value = input.getText().toString();
                 System.out.println(value);
-                if(value.isEmpty()) {
-                    Toast.makeText(view.getContext(), "Value is empty",Toast.LENGTH_SHORT).show();
+                if (value.isEmpty()) {
+                    Toast.makeText(view.getContext(), "Value is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 int inputValue = Integer.parseInt(value);
-
                 int pos = holder.getAdapterPosition();
                 ProjectManager.projectManager.updateDay(pos, inputValue);
-
-                System.out.println(holder.index);
-                System.out.println(holder.getAdapterPosition());
             });
             builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
@@ -73,9 +69,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
                         ProjectManager.projectManager.removeDay(holder.getAdapterPosition());
-                        Toast.makeText(view.getContext(), "Yaay", Toast.LENGTH_SHORT).show();
-                    })
-                    .setNegativeButton(android.R.string.no, null).show();
+                    }).setNegativeButton(android.R.string.no, null).show();
             return true;
         });
     }
@@ -91,12 +85,13 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         public final TextView Hours;
         public final RelativeLayout relativeLayout;
         public int index;
+
         public ViewHolder(View itemView) {
             super(itemView);
             this.Day = itemView.findViewById(R.id.Day);
             this.Date = itemView.findViewById(R.id.Date);
             this.Hours = itemView.findViewById(R.id.Hours);
-            relativeLayout = itemView.findViewById(R.id.relativeLayout);
+            this.relativeLayout = itemView.findViewById(R.id.relativeLayout);
         }
     }
 }

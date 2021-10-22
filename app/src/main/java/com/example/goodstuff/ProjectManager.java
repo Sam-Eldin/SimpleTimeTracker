@@ -40,7 +40,7 @@ public class ProjectManager {
 
     public void removeDay(int index) {
         this.totalHours -= this.adapter.listdata.get(0).getHours();
-        this.firestoreHelper.deleteDay(index);
+        this.firestoreHelper.remove(index);
         this.adapter.listdata.remove(index);
         this.adapter.notifyItemRemoved(index);
         this.textView.setText(String.valueOf(this.totalHours));

@@ -14,37 +14,36 @@ import java.util.Objects;
 
 @SuppressWarnings({"StatementWithEmptyBody", "unchecked"})
 public class FirestoreHelper {
-    public final FirebaseFirestore database;
-    private final DocumentReference documentReference;
+    public final FirebaseFirestore database; // firestore connection
+    private final DocumentReference documentReference; // Sam document reference
+    public ArrayList<Object> objectArrayList; // Dates array
 
     public FirestoreHelper() {
         this.database = FirebaseFirestore.getInstance();
-        this.documentReference = database.collection(MainActivity.Collections.USERS).document(MainActivity.Users.Sam);
+        this.documentReference = database.collection(Collections.USERS).document(Users.Sam);
+        objectArrayList = executeGet();
     }
 
 
     public void addDay(int hours) {
-        ArrayList<Object> documentSnapshot = executeGet();
         Map<Object, Object> map = new HashMap<>();
-        map.put("hours", hours);
-        map.put("day", new Date());
-        documentSnapshot.add(0, map);
-        executeUpdate(documentSnapshot);
+        map.put(DatesFields.HOURS, hours);
+        map.put(DatesFields.DAY, new Date());
+        objectArrayList.add(0, map);
+        executeUpdate(objectArrayList);
         System.out.println("\n\n--------------------------\nAdded\n------------------------------\n\n");
     }
 
     public void updateDay(int index, int newHours) {
-        ArrayList<Object> documentSnapshot = executeGet();
-        Map<Object, Object> map = (Map<Object, Object>) documentSnapshot.get(index);
+        Map<Object, Object> map = (Map<Object, Object>) objectArrayList.get(index);
         map.put("hours", newHours);
-        executeUpdate(documentSnapshot);
+        executeUpdate(objectArrayList);
         System.out.println("\n\n--------------------------\nUpdated\n------------------------------\n\n");
     }
 
-    public void deleteDay(int index) {
-        ArrayList<Object> documentSnapshot = executeGet();
-        documentSnapshot.remove(index);
-        executeUpdate(documentSnapshot);
+    public void remove(int index) {
+        objectArrayList.remove(index);
+        executeUpdate(objectArrayList);
         System.out.println("\n\n--------------------------\nDeleted\n------------------------------\n\n");
     }
 
@@ -66,7 +65,7 @@ public class FirestoreHelper {
     }
 
     private void executeUpdate(ArrayList<Object> documentSnapshot) {
-        Task<Void> task = documentReference.update(MainActivity.Fields.Dates, documentSnapshot);
+        Task<Void> task = documentReference.update(Fields.Dates, documentSnapshot);
         while (!task.isComplete()) {
         }
     }
@@ -75,6 +74,27 @@ public class FirestoreHelper {
         Task<DocumentSnapshot> task = documentReference.get();
         while (!task.isComplete()) {
         }
-        return (ArrayList<Object>) Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getData()).get(MainActivity.Fields.Dates);
+        return (ArrayList<Object>) Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getData()).get(Fields.Dates);
+    }
+
+
+    public static class Collections {
+        public static final String USERS = "users";
+    }
+
+    public static class Users {
+        public static final String Sam = "Sam";
+    }
+
+    public static class Fields {
+        public static final String Dates = "Dates";
+    }
+
+    public static class DatesFields {
+        public static final String DAY = "day";
+        public static final String HOURS = "hours";
+
     }
 }
+
+
