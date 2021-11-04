@@ -25,7 +25,7 @@ public class FirestoreHelper {
     }
 
 
-    public void addDay(int hours) {
+    public void addDay(Double hours) {
         Map<Object, Object> map = new HashMap<>();
         map.put(DatesFields.HOURS, hours);
         map.put(DatesFields.DAY, new Date());
@@ -34,7 +34,7 @@ public class FirestoreHelper {
         System.out.println("\n\n--------------------------\nAdded\n------------------------------\n\n");
     }
 
-    public void updateDay(int index, int newHours) {
+    public void updateDay(int index, Double newHours) {
         Map<Object, Object> map = (Map<Object, Object>) objectArrayList.get(index);
         map.put("hours", newHours);
         executeUpdate(objectArrayList);
@@ -56,7 +56,7 @@ public class FirestoreHelper {
 
             Date date = ((Timestamp) Objects.requireNonNull(mappy.get("day"))).toDate();
             //noinspection ConstantConditions
-            long hours = (long) mappy.get("hours");
+            double hours = (Double) mappy.get("hours");
             sum += hours;
             results.add(MyListData.construct(date, hours));
         }

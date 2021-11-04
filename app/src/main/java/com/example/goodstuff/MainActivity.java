@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle("Enter Number of hours to add");
 
             final EditText input = new EditText(this);
-            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
             builder.setView(input);
 
             builder.setPositiveButton("OK", (dialog, which) -> {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(view.getContext(), "Value is empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int inputValue = Integer.parseInt(value);
+                double inputValue = Double.parseDouble(value);
                 projectManager.addNewDay(inputValue);
             });
             builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());

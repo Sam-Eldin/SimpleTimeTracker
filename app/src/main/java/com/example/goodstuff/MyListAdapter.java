@@ -44,7 +44,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             builder.setTitle("Enter Number of hours to add");
 
             final EditText input = new EditText(view.getContext());
-            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
             builder.setView(input);
 
             builder.setPositiveButton("Set", (dialog, which) -> {
@@ -54,7 +54,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                     Toast.makeText(view.getContext(), "Value is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int inputValue = Integer.parseInt(value);
+                double inputValue = Double.parseDouble(value);
                 int pos = holder.getAdapterPosition();
                 ProjectManager.projectManager.updateDay(pos, inputValue);
             });
