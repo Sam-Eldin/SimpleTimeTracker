@@ -2,6 +2,7 @@ package com.example.goodstuff;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.text.InputType;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the projectManager.
         projectManager = ProjectManager.projectManager;
         projectManager.textView = this.findViewById(R.id.TopTextID);
-        projectManager.textView.setText(String.valueOf(projectManager.totalHours));
         projectManager.adapter.listdata = projectManager.firestoreHelper.getData();
+        projectManager.textView.setText(String.valueOf(projectManager.totalHours));
         projectManager.adapter.notifyItemRangeInserted(0, projectManager.adapter.getItemCount());
 
         // Initialize the recycler view.

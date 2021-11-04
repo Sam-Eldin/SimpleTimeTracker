@@ -17,7 +17,7 @@ public class MyListData {
     }
 
     public static MyListData construct(Date date, long hours) {
-        @SuppressLint("SimpleDateFormat") String dy = (new SimpleDateFormat("EEEE")).format(date);
+        @SuppressLint("SimpleDateFormat") String dy = (new SimpleDateFormat("EE")).format(date);
         @SuppressLint("SimpleDateFormat") String dt = (new SimpleDateFormat("dd-MM-yyyy")).format(date);
         return new MyListData(dy, dt, hours);
     }
